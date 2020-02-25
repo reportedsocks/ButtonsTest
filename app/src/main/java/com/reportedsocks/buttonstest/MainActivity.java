@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.reportedsocks.buttonstest.databinding.ActivityMainBinding;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         wasImageClickedArray = new int[]{0,0,0,0,0};
 
         images = new int[5];
@@ -40,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
         imagesClicked[4] = R.drawable.tb_ic_accelerated_clicked;
 
         imageViews = new ImageView[5];
-        imageViews[0] = findViewById(R.id.menu_image);
-        imageViews[1] = findViewById(R.id.shop_image);
-        imageViews[2] = findViewById(R.id.pause_image);
-        imageViews[3] = findViewById(R.id.play_image);
-        imageViews[4] = findViewById(R.id.accelerated_image);
+        imageViews[0] = binding.menuImage;
+        imageViews[1] = binding.shopImage;
+        imageViews[2] = binding.pauseImage;
+        imageViews[3] = binding.playImage;
+        imageViews[4] = binding.acceleratedImage;
 
     }
 
